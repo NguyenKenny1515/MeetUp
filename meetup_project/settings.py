@@ -25,15 +25,15 @@ SESSION_COOKIE_SCURE = True
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ="hb2qyn7be9-jqu4*i5*&-f-@#d^mra%n1o$m#4=_qk_0c(f2#t"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 # GOOGLE MAPS API KEY
-GOOGLE_MAPS_API_KEY ="AIzaSyBCeA7xJemPCf-VQV_JpxSMiatQIych_YM"
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
 
-ALLOWED_HOSTS = ["meetup-160.herokuapp.com"]
+ALLOWED_HOSTS = ["meetup-4ccc9670cc29.herokuapp.com"]
 
 
 # Application definition
@@ -117,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('API_KEY'),
-    'API_SECRET': os.environ.get('API_SECRET'),
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
